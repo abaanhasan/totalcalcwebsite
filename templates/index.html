@@ -5,21 +5,31 @@
 </head>
 <body>
     <h2>Enter Your Marks</h2>
-    <form method="POST">
-        <label>Periodic Test 1:</label><input type="number" name="pt1" required><br>
-        <label>Periodic Test 2:</label><input type="number" name="pt2" required><br>
-        <label>Half-Yearly Exam:</label><input type="number" name="hy" required><br>
-        <label>Final Exam:</label><input type="number" name="f" required><br>
-        <label>Practicals/Internal:</label><input type="number" name="pracs" required><br>
-        <label>Theory Maximum Marks:</label><input type="number" name="theorymax" required><br>
-        <input type="submit" value="Calculate">
+    <form method="post">
+        <label>Periodic Test 1:</label>
+        <input type="number" name="pt1" step="any" required><br>
+        
+        <label>Periodic Test 2:</label>
+        <input type="number" name="pt2" step="any" required><br>
+
+        <label>Half-Yearly Exam:</label>
+        <input type="number" name="hy" step="any" required><br>
+
+        <label>Final Examination:</label>
+        <input type="number" name="f" step="any" required><br>
+
+        <label>Practicals/Internal:</label>
+        <input type="number" name="pracs" step="any" required><br>
+
+        <label>Theory Max Marks:</label>
+        <input type="number" name="theorymax" step="any" required><br>
+
+        <button type="submit">Calculate</button>
     </form>
 
     {% if result is not none %}
-        <h3>Your Final Score: {{ result }}</h3>
-    {% endif %}
-
-    {% if error %}
+        <p>Your final score is: <strong>{{ result }}</strong></p>
+    {% elif error %}
         <p style="color: red;">{{ error }}</p>
     {% endif %}
 </body>
